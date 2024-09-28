@@ -1,0 +1,75 @@
+@import "../../../../../assets/styles/variables";
+
+.section-container {
+    height: 90vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow-y: hidden;
+
+    div {
+
+        &:nth-child(1) {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            span {
+                position: fixed;
+                color: #fff6ef;
+                font-size: 3rem;
+                text-align: center;
+            }
+
+            img {
+                height: 100%;
+                width: 50vw;
+                object-fit: cover;
+                position: fixed;
+            }
+        }
+
+        &:nth-child(2) {
+            background-color: $pink-color !important;
+        }
+    }
+}
+
+.check-container {
+    display: flex;
+    align-items: center;
+    p{
+        margin: 0;
+    }
+
+    
+
+    app-form {
+        transition: all 0.5s ease;
+    }
+
+    app-sign-up {
+        transition: all 0.5s ease;
+    }
+}
+:host ::ng-deep .p-inputswitch.p-inputswitch-checked{
+    // .p-inputswitch-slider{background-color: $terciary-color !important;}
+    //  {
+
+        .p-inputswitch-slider{background-color: $secondary-color !important;
+            &::before{
+                background-color: $terciary-color !important;
+            }
+        }
+    // }
+}
+:host ::ng-deep .p-inputswitch{
+    // .p-inputswitch-slider{background-color: $terciary-color !important;}
+    //  {
+
+        .p-inputswitch-slider{background-color: $terciary-color !important; 
+        
+        &::before{
+            background-color: $secondary-color;
+        }}
+    // }
+}

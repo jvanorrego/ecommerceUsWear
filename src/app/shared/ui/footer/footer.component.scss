@@ -1,0 +1,14 @@
+@import "../../../../assets/styles/variables";
+
+.layout-footer{
+    background: $primary-color;
+    align-items: center;
+    img{
+        height: 2.8rem;
+    }
+
+    span{
+        font-size: 1.4rem;
+        color: $secondary-color;
+    }
+}

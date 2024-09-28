@@ -1,0 +1,61 @@
+<div class="layout-topbar" #tb>
+    <a class="layout-topbar-logo" routerLink="">
+        <img src="assets/img/logo.png" alt="logo">
+        <span>UsWear</span>
+    </a>
+    
+    <a href="ahorro.html"  >Ahorro</a>
+
+    <div class="search-container">
+        <p-inputGroup>
+            @if(needFilter){
+                <input type="text"  pInputText placeholder="Buscar" (keyup)="keywordFilter($event)" [(ngModel)]="keyword" />
+                <button type="button" pButton icon="pi pi-search" class="p-button"></button>
+            }
+        </p-inputGroup>
+    </div>
+
+    <button #topbarmenubutton class="p-link layout-topbar-menu-button layout-topbar-button">
+        <i class="pi pi-ellipsis-v"></i>
+    </button>
+
+    <div #topbarmenu class="layout-topbar-menu">
+        <!-- <button pButton icon="pi pi-bars"></button> -->
+        <div>
+            <button class="btn" *ngIf="isLogged" pButton (click)="op.toggle($event)"
+                icon="pi pi-shopping-cart"></button>
+            <span>{{productsInCart.length}}</span>
+        </div>
+        <a class="router" *ngIf="!isLogged" icon="pi pi-shopping-cart" [routerLink]="'/login'">Registrarse/Iniciar
+            sesión</a>
+        <button class="btn" pButton *ngIf="isLogged" icon="pi pi-sign-out" (click)="closeSession()"></button>
+    </div>
+</div>
+
+<p-overlayPanel #op [dismissable]="true" [showCloseIcon]="true" [appendTo]="tb" styleClass="flex-col">
+    <h4>
+        Carrito
+    </h4>
+    @if (productsInCart.length>0) {
+    @for (product of productsInCart; track $index) {
+    <div class="flex-row row-between">
+        <p-image [src]="product.image" alt="Image" width="50"></p-image>
+        <p>{{product.productName}}</p>
+        <p>{{product.price |currency:'COP'}}</p>
+        <button pButton icon="pi pi-trash" (click)="deleteFromCart($index)" class="btn btn-delete"></button>
+    </div>
+    }
+    }
+    @else {
+    <h4>Tu carrito se encuentra vacío</h4>
+    }
+    <div class="flex-row" style="justify-content: start;">
+        <h4 style="margin-bottom: 0px;  margin-top: 0px;">SUBTOTAL</h4>
+        <h4 style="margin-bottom: 0px; margin-top: 0px;"> {{subtotal| currency: "COP"}} </h4>
+    </div>
+    <div class="flex-row">
+        <button pButton label="Checkout" class="btn btn-checkout" [routerLink]="'/checkout'"></button>
+    <button  icon="pi pi-trash" pButton class="btn btn-empty" (click)="emptyShoppingCart()" label="Vaciar carrito"></button>
+    </div>
+</p-overlayPanel>
+<p-toast position="top-center"></p-toast>

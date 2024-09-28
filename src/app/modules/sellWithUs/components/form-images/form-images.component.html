@@ -1,0 +1,32 @@
+<div class="flex flex-col mt-5 container-images-form">
+    <h2>Vende con nosotros</h2>
+    <form (ngSubmit)="handleSubmit(form.value)" [formGroup]="form">
+        <p-floatLabel>
+            <input pInputText id="seller" formControlName="seller" />
+            <label for="seller">Vendedor</label>
+        </p-floatLabel>
+        <p-floatLabel>
+            <input pInputText id="phone" formControlName="phoneSeller" />
+            <label for="phone">Teléfono</label>
+        </p-floatLabel>
+        <p-floatLabel>
+            <input pInputText id="product" formControlName="productName" />
+            <label for="product">Producto(con talla)</label>
+        </p-floatLabel>
+        <p-floatLabel>
+            <input pInputText id="price" formControlName="price" />
+            <label for="price">Precio</label>
+        </p-floatLabel>
+        <p-dropdown [options]="categories" formControlName="selectedCategory" [showClear]="true" placeholder="Categoría"></p-dropdown>
+        <p-fileUpload #fileUpload auto="true" (onClear)="clearImage()" (onSelect)="onUpload($event)"  [multiple]="false" accept="image/*" maxFileSize="1000000">
+            <ng-template pTemplate="toolbar">
+                <div class="py-3">Sube tu imagen</div>
+            </ng-template>
+    
+        </p-fileUpload>
+    
+        <p-button label="Subir" type="submit" styleClass="btn btn-submit"></p-button>
+    
+    </form>
+</div>
+<p-toast [position]="'top-center'"></p-toast>

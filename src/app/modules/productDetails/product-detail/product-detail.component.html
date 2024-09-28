@@ -1,0 +1,22 @@
+<app-navbar></app-navbar>
+<main>
+    @if(product!== undefined){ <section class="flex-row">
+        <p-image [src]="product['image']" height="500px" alt="image" [preview]="true"></p-image>
+        <div class="flex-col info">
+            <h1>{{product.productName}}</h1>
+            <h2><strong>Vendedor(a): </strong>{{product.seller}}</h2>
+            <h2><strong>Precio: </strong>{{product.price}}</h2>
+            <h2><strong>Estado:</strong> <p-chip label="Disponible"></p-chip></h2>
+            <div style="    width: 35%;
+            display: flex;
+            justify-content: space-around;
+            margin: 0 auto;
+">
+                <button pButton class="btn-add" [disabled]="filterDisabled(product)" icon="pi pi-shopping-cart"
+                    (click)="addToCart()"></button>
+                <button pButton class="btn-wsp" icon="pi pi-whatsapp" (click)="openingWhatsapp()"></button>
+            </div>
+        </div>
+    </section>
+    }</main>
+<app-footer></app-footer>

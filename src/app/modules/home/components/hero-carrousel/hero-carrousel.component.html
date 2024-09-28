@@ -1,0 +1,15 @@
+<p-carousel *ngIf="products!== undefined" [value]="products" [numVisible]="1" [responsiveOptions]="responsiveOptions">
+    <ng-template let-product pTemplate="item">
+        <div class="border-1 surface-border border-round m-2 text-center py-5 px-3 product-container">
+            <div>
+                <h4 class="mb-1">{{ product.productName }}</h4>
+                <h6>Vendido por: {{product.seller}}</h6>
+                <button pButton [routerLink]="'/product/'+product['id']" label="Ver ahora"></button>
+            </div>
+            <div class="mb-3">
+                <img src="{{ product.image }}"
+                    [alt]="product.name" class="w-6 shadow-2" />
+            </div>
+        </div>
+    </ng-template>
+</p-carousel>

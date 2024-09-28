@@ -1,0 +1,5 @@
+<app-navbar [needFilter]="true" (keywordEmitter)="changeTextFilterInput($event)"></app-navbar>
+<app-hero-carrousel></app-hero-carrousel>
+<h3 style="text-align: center;">Todas las prendas</h3>
+<app-products [filterProduct]="valueFilter"></app-products>
+<app-footer></app-footer>

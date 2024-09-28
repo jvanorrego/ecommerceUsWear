@@ -1,0 +1,6 @@
+
+<ng-container *ngIf="productsRender !== undefined" >
+    <ng-container *ngFor="let product of productsRender">
+        <app-product [session]="session" [product]="product"></app-product>
+    </ng-container>
+</ng-container>

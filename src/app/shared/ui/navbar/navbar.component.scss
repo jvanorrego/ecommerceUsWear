@@ -1,0 +1,135 @@
+@import "../../../../assets/styles/variables";
+
+.layout-topbar {
+    background-color: $primary-color ;
+
+    div.search-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+    }
+
+    .search-container {
+        .p-inputtext {
+            padding: 8px;
+            border: 1px solid transparent;
+            border-radius: 8px;
+            max-width: 50rem;
+            min-width: 25rem;
+            width: 100% !important;
+            background: $terciary-color;
+
+            &::placeholder {
+                color: $secondary-color;
+            }
+        }
+
+        .p-button.p-button-icon-only {
+            margin-left: -40px;
+            background: transparent;
+            color: $secondary-color;
+            border-color: transparent;
+        }
+    }
+
+    .layout-topbar-logo {
+        >img {
+            height: 3.7rem;
+        }
+
+        span {
+            color: $secondary-color;
+            font-size: 2.2rem;
+        }
+    }
+}
+
+.router {
+    color: $secondary-color;
+    transition: all 1 ease;
+
+    &:hover {
+        opacity: 0.8;
+    }
+
+    &:active {
+        opacity: 0.7;
+    }
+
+    &:link {
+        opacity: 0.8;
+    }
+}
+
+.p-button.btn {
+    background: $secondary-color;
+    border-color: transparent;
+    padding: 10px 8px;
+    margin-left: 10px;
+}
+
+div {
+    >span {
+        position: relative;
+        right: 10px;
+        bottom: 20px;
+        color: $primary-color;
+        font-size: 10px;
+    }
+}
+
+.row-between {
+    justify-content: space-between;
+}
+
+:host ::ng-deep .p-overlaypanel {
+    // position: fixed;
+    top: 50px !important;
+    right: 60px !important;
+    max-width: 400px;
+    z-index: 10000;
+    background: $primary-color;
+
+    &::before{
+        background: $primary-color;
+    }
+    &::after{
+        background: $primary-color;
+        border-bottom-color: $primary-color;
+    }
+
+    .p-button.btn.btn-checkout {
+        background-color: $secondary-color !important;
+        color: $primary-color !important;
+        transition: all 1s ease;
+
+
+        &:hover {
+            background: $primary-color !important;
+            color: $secondary-color !important;
+        }
+    }
+
+    .p-button.btn.btn-empty {
+
+        background-color: $pink-color !important;
+        color: $primary-color !important;
+        transition: all 1s ease;
+
+        &:hover {
+            background: $primary-color !important;
+            color: $pink-color !important;
+        }
+    }
+    
+    .p-button.btn.btn-delete {
+           
+        background-color: transparent !important;
+        color: $pink-color !important;
+        border: none;
+    }
+    .p-overlaypanel-close {
+        background: $secondary-color !important;
+    }
+}

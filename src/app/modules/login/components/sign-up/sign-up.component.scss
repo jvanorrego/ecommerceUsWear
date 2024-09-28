@@ -1,0 +1,59 @@
+@import "../../../../../assets/styles/variables";
+
+.form-container {
+    background-color: $pink-color !important;
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+    padding: 40px 25px;
+
+    h4{
+        color: $secondary-color;
+    }
+
+    h4 {
+        font-weight: bold;
+        font-size: 40px;
+        margin-bottom: 0px;
+    }
+
+    .p-button{
+        transition: all 1s ease;
+        margin-top: 30px;
+        width: 90%;
+        background-color: $secondary-color;
+        color: $terciary-color;
+        &:hover{
+            color: $secondary-color;
+            background-color: $terciary-color;
+
+        }
+    }
+
+    a{
+        margin-top: 15px;
+        color: $secondary-color;
+        text-decoration: underline;
+        font-size: 1.1rem;
+        font-weight: 500;
+    }
+
+}
+
+:host ::ng-deep .p-float-label {
+    margin-top: 20px;
+
+    input {
+        color: $secondary-color;
+        background-color: $terciary-color;
+        width: 90%;
+    }
+
+    label {
+        color: $secondary-color;
+    }
+
+    .p-password {
+        width: 100%;
+    }
+}

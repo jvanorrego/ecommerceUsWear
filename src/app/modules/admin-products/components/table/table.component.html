@@ -1,0 +1,68 @@
+<div class="card">
+    <p-table [rows]="5" [showCurrentPageReport]="true" [paginator]="true"
+        currentPageReportTemplate="Mostrando {first} hasta {last} del {totalRecords} total de items"
+        [rowsPerPageOptions]="[5, 10, 20]" [columns]="cols" [value]="data" [tableStyle]="{ 'min-width': '50rem',     'margin-bottom': '50px',
+    'padding-bottom': '50px' }"
+     [globalFilterFields]="['inventoryStatus']">
+        <ng-template pTemplate="header" let-columns>
+            <tr>
+                <th *ngFor="let col of columns">
+                    {{ col.header }}
+                </th>
+            </tr>
+            <tr>
+                <ng-container *ngFor="let col of columns">
+
+                    <th *ngIf="col.field!== 'inventoryStatus'; else elseHeader">
+                        <!-- {{ col.header }} -->
+                    </th>
+                    <ng-template #elseHeader>
+                        <th >
+                            <p-columnFilter field="inventoryStatus" matchMode="equals" [showMenu]="false" >
+                                <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                                    <p-dropdown [ngModel]="value" [options]="optStatus" (onChange)="filter($event.value)" placeholder="Filtra" [showClear]="true">
+                                        <ng-template let-option pTemplate="item">
+                                        {{option}}
+                                        </ng-template>
+                                    </p-dropdown>
+                                </ng-template>
+                            </p-columnFilter>
+                        </th>
+                    </ng-template>
+                </ng-container>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData let-columns="columns">
+            <tr [ngClass]="{delivered: rowData['inventoryStatus']==='Delivered'}">
+                <ng-container *ngFor="let col of columns">
+
+                    <td *ngIf="col.field!=='inventoryStatus';else elseTd">
+                        <p *ngIf="col.field!== 'image'; else img">
+                            {{ rowData[col.field] }}
+                        </p>
+                        <ng-template #img>
+                            <img style="    max-width: 150px;" [src]="rowData[col.field]" />
+                        </ng-template>
+                    </td>
+                    <ng-template #elseTd>
+                        <td [pEditableColumn]="true" pEditableColumnField="inventoryStatus">
+                            <p-cellEditor>
+                                <ng-template pTemplate="input">
+                                    <p-dropdown (onChange)="ChangeProductStatus(rowData)"
+                                        [style]="{'max-width': '130px'}" [options]="optStatus"
+                                        [(ngModel)]="rowData.inventoryStatus" [showClear]="true"
+                                        placeholder="Change Status"></p-dropdown>
+                                    <!-- <input type="text"  [(ngModel)]="rowData.inventoryStatus"/> -->
+                                </ng-template>
+                                <ng-template pTemplate="output">
+                                    {{ rowData.inventoryStatus }}
+                                </ng-template>
+                            </p-cellEditor>
+                        </td>
+                    </ng-template>
+                </ng-container>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
+<p-toast position="top-center"></p-toast>

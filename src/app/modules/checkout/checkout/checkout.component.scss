@@ -1,0 +1,13 @@
+@import "../../../../assets/styles/variables";
+
+app-grid-container{
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    padding-right: 20px;
+    background:$primary-color;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+}

@@ -1,0 +1,96 @@
+<form (ngSubmit)="handleSubmit()" class="container" style="height: 100%;">
+    <h3>CARRITO DE COMPRAS</h3>
+    <p-divider></p-divider>
+    <div class="checkout-container">
+        <div class="product-container">
+            <div class="products">
+                <div class="headers">
+                    <h3>Producto</h3>
+                    <h3>Precio</h3>
+                    <h3>ACCIÓN</h3>
+                </div>
+                <p-divider></p-divider>
+                @if (products.length>0) {
+                @for (product of products; track $index) {
+                <div class="items">
+                    <div class="img-container">
+                        <img [src]="product.image" alt="">
+                        <p>{{product.productName}}</p>
+                    </div>
+                    <p>{{product.price| currency: "COP"}} </p>
+                    <button pButton label="ELIMINAR" (click)="deleteProduct($index)"></button>
+                </div>
+                }
+                }
+                @else {
+                <div class="flex-row">
+
+                    <h1 style="color: #344f4a;">Uppss tu carrito se encuentra vacío
+                    </h1><span class="loader">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                </div>
+                }
+            </div>
+            <h3>CONFIRMAR INFORMACIÓN DE ENVÍO</h3>
+            <div class="confirmation">
+                <div class="child">
+                    <label for="phone">Teléfono</label>
+                    <input pInputText id="phone" [(ngModel)]="phone" [ngModelOptions]="{standalone:true}" />
+                </div>
+                <p-divider></p-divider>
+                <div class="child">
+                    <label for="address">Dirección</label>
+                    <input pInputText id="address" [(ngModel)]="address" [ngModelOptions]="{standalone:true}" />
+                </div>
+                <p-divider></p-divider>
+                <div class="child">
+                    <label for="neighborhood" >Barrio o Municipio</label>
+                    <input pInputText id="neighborhood" [(ngModel)]="neighborhood" [ngModelOptions]="{standalone:true}" />
+                </div>
+            </div>
+        </div>
+        <div class="summary">
+            <h4>RESUMEN DE PEDIDO</h4>
+            <p-divider></p-divider>
+            <div class="summary-childs">
+                <h5>Cantidad de productos</h5>
+                <p>{{products.length}}</p>
+            </div>
+            <p-divider></p-divider>
+            <div class="summary-childs">
+                <h5>Subtotal:</h5>
+                <p>{{subtotal |currency:'COP'}}</p>
+            </div>
+            <p-divider></p-divider>
+            <div class="summary-childs">
+                <div>
+                    <h5>Envío</h5>
+                    <span>costo por defecto para todos los envíos</span>
+                </div>
+                @if (products.length>0) {
+                <p>{{sendingCost |currency:'COP'}}</p>
+                }
+                @else {
+                <p>{{0 |currency:'COP'}}</p>
+                }
+            </div>
+            <p-divider></p-divider>
+
+            <div class="summary-childs">
+                <h5>Total a pagar:</h5>
+                <p>{{total| currency: 'COP'}}</p>
+            </div>
+            <div class="summary-childs">
+                <div></div>
+                <button pButton type="submit" label="Confirmar"></button>
+            </div>
+
+        </div>
+
+    </div>
+</form>
+
+<p-toast position="top-center"></p-toast>

@@ -1,0 +1,67 @@
+<!-- <p-dataView #dv [value]="orders" [rows]="5" [paginator]="true">
+    <ng-template let-products pTemplate="list">
+        <div class="grid grid-nogutter">
+            <div class="col-12" *ngFor="let item of products; let first = first">
+                <div class="flex flex-column xl:flex-row xl:align-items-start p-4 gap-4"
+                    [ngClass]="{ 'border-top-1 surface-border': !first }">
+                    <img class="w-9 sm:w-16rem xl:w-10rem shadow-2 block xl:block mx-auto border-round"
+                        [src]="'https://primefaces.org/cdn/primeng/images/demo/product/' + item.image"
+                        [alt]="item.name" />
+                    <div
+                        class="flex flex-column sm:flex-row justify-content-between align-items-center xl:align-items-start flex-1 gap-4">
+                        <div class="flex flex-column align-items-center sm:align-items-start gap-3">
+                            <div class="text-2xl font-bold text-900">{{ item.name }}</div>
+
+                        </div>
+                    </div>
+                    <div class="flex sm:flex-column align-items-center sm:align-items-end gap-3 sm:gap-2">
+                        <span class="text-2xl font-semibold">{{ '$' + item.price }}</span>
+                        <button pButton icon="pi pi-shopping-cart" class="md:align-self-end mb-2 p-button-rounded"
+                            [disabled]="item.inventoryStatus === 'OUTOFSTOCK'"></button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </ng-template>
+</p-dataView> -->
+
+<section>
+
+    <h1>Mis Ordenes</h1>
+    <p-accordion>
+        <ng-container *ngFor="let order of orders">
+            <p-accordionTab [header]="'Id:  '+ order.idOrder">
+                <div class="flex-row order-container">
+                    <div class="flex-col products-container">
+                        <h4>Productos</h4>
+                        <div *ngFor="let prod of order.productInventory">
+                            <!-- <picture class="flex-col" > -->
+                            <img height="50" width="50" style="object-fit: cover;" [src]="prod.image"
+                                [alt]="prod.productName" />
+                            <span>{{prod.productName}}</span>
+                            <!-- </picture> -->
+                        </div>
+                    </div>
+                    <div class="flex-col user-info">
+                        <h4>Información</h4>
+                        <div class="grid-container">
+    
+                            <h4>{{session.displayName}}</h4>
+                            <h4>{{order.user.address}}</h4>
+                            <h4>{{order.user.phone}}</h4>
+                            <h4>{{order.user.neighborhood}}</h4>
+                        </div>
+                    </div>
+                    <div class="status flex-col">
+                        <h4>Estado de envío</h4>
+                        <p-badge [styleClass]="order['delivered'] ===true? 'delivered':'not-delivered'"
+                            [value]="order['delivered'] ===true? 'Entregado':'No entregado'"></p-badge>
+                    </div>
+    
+                </div>
+    
+            </p-accordionTab>
+        </ng-container>
+    </p-accordion>
+</section>

@@ -1,0 +1,87 @@
+@import "../../../../../assets/styles/variables";
+
+:host::ng-deep .p-carousel {
+    background: $secondary-color;
+    &-container{
+        min-height: 45vh;
+        height: 100%;
+        place-items: center;
+
+    }
+
+    .product-container {
+        display: grid;
+        grid-template-columns: 0.3fr 0.3fr;
+        place-content: center;
+        width: 100%;
+
+        img{
+            max-height: 260px;
+            height: 100%;
+            object-fit: cover;
+            min-width: 140px;
+            width: 100%;
+        }
+        div{
+            display: flex;
+            min-height: 37vh;
+            height: 100%;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            
+            &:first-child{
+                h4, h6{
+                    color: #fff;
+                    text-align: start;
+                    min-width: 200px;
+                    max-width: 250px;
+                    width: 100%;
+                }
+                h4{
+                    font-weight: 500;
+                    line-height: 2rem;
+                    font-size: 2rem;
+                }
+                h6{
+                    font-weight: 400;
+                }
+            }
+        }
+    }
+    &-items-container {
+        .p-carousel-item {
+            div {
+                border: 1px solid transparent !important;
+            }
+        }
+    }
+
+    .p-carousel-prev.p-link{
+        svg{
+            height: 30px;
+            width: 30px;
+            color: $pink-color;
+            font-weight: bold;
+        }
+    }
+    .p-carousel-next.p-link{
+        svg{
+            height: 30px;
+            width: 30px;
+            color: $pink-color;
+            font-weight: bold;
+        }
+    }
+
+    .p-button{
+        background: $terciary-color;
+        min-width: 200px;
+        width: 100%;
+        padding: 10px;
+        font-size: 1.3rem;
+        font-weight: 400;
+        border-radius: 7px;
+        border-color: transparent;
+    }
+}

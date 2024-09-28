@@ -1,0 +1,18 @@
+@if (product!== undefined && product!== null) {
+    <p-card >
+        <ng-template pTemplate="header">
+            <img alt="Card" [src]="product['image']" />
+        </ng-template>
+        <div class="card-content">
+            <h3>{{product.productName}}</h3>
+            <h4>{{product.seller}}</h4>
+            <h2>{{product.price |currency }} COP</h2>
+        </div>
+        <ng-template pTemplate="footer">
+            <p-button [disabled]="filterDisabled(product)" icon="pi pi-shopping-cart" (onClick)="addToCart()"></p-button>
+            <p-button icon="pi pi-eye" [routerLink]="['product', product.id]"></p-button>
+            <p-button icon="pi pi-whatsapp" (onClick)="openingWhatsapp()"></p-button>
+        </ng-template>
+    </p-card>
+    <p-toast position="top-center"></p-toast>
+}

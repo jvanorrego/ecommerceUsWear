@@ -1,0 +1,119 @@
+@import "../../../../../assets/styles/variables";
+
+.general-container {
+    margin-top: 40px;
+
+    h4 {
+        text-align: center;
+        color: $secondary-color;
+    }
+
+    .order-container {
+        justify-content: space-between;
+        width: 80%;
+        margin: 0 auto;
+
+        .products-container {
+            max-height: 180px;
+            min-height: 170px;
+            height: 100%;
+            padding-left: 20px;
+            padding-right: 30px;
+            justify-content: start;
+
+
+            div {
+                display: flex;
+                align-items: center;
+                padding-bottom: 10px;
+            }
+
+        }
+
+        .user-info {
+            max-height: 180px;
+            height: 100%;
+
+            h4 {
+                text-align: center;
+            }
+
+            .grid-container {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                place-items: center;
+
+                h4 {
+                    height: 60px;
+                    width: 200px;
+                    margin: 0 auto;
+                    text-align: center;
+                }
+            }
+        }
+
+        .status {
+            justify-content: start;
+            max-height: 180px;
+            min-height: 160px;
+            height: 100%;
+
+            h4 {
+                margin: 5px;
+            }
+
+            h5 {
+                margin: 5px;
+            }
+        }
+
+    }
+}
+
+
+:host ::ng-deep .p-dataview {
+    background: $primary-color;
+
+    &-content {
+        background: $primary-color;
+    }
+
+    .p-paginator {
+        background: $primary-color;
+
+        .p-paginator-pages .p-paginator-page.p-highlight {
+            background: $terciary-color;
+            color: $primary-color;
+        }
+
+    }
+}
+
+:host ::ng-deep .p-dropdown.p-inputwrapper {
+    background: $secondary-color;
+    border-color: transparent;
+
+    span {
+        color: $primary-color !important;
+
+    }
+
+    .p-dropdown-items-wrapper {
+        background: $secondary-color;
+
+        .p-dropdown-item {
+            &.p-highlight {
+                color: $terciary-color;
+                background: $secondary-color;
+
+            }
+
+            &.p-focus {
+                background-color: $terciary-color;
+                color: $secondary-color;
+
+                span {}
+            }
+        }
+    }
+}

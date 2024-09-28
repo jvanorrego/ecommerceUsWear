@@ -1,0 +1,84 @@
+@import "../../../../../assets/styles/variables";
+
+section{
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background-color: $terciary-color;
+
+    h1{
+        color: $secondary-color;
+    }
+}
+
+.order-container {
+    justify-content: space-between;
+    width: 80%;
+    margin: 0 auto;
+
+    .products-container {
+        max-height: 180px;
+        height: 100%;
+        padding-left: 20px;
+        padding-right: 30px;
+
+
+        div {
+            display: flex;
+            align-items: center;
+            padding-bottom: 10px;
+        }
+
+    }
+
+    .user-info {
+        max-height: 180px;
+        height: 100%;
+
+        h4 {
+            text-align: center;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            place-items: center;
+
+            h4 {
+                height: 60px;
+                width: 200px;
+                margin: 0 auto;
+                text-align: center;
+            }
+        }
+    }
+
+    .status{
+        justify-content: start;
+        max-height: 180px;
+        min-height: 160px;
+        height: 100%;
+    }
+
+}
+
+:host ::ng-deep .p-badge {
+    text-align: center;
+    margin-top: 30px;
+    &.not-delivered {
+        background: $pink-color;
+    }
+}
+
+:host ::ng-deep .p-accordion-content{
+
+    background-color: $primary-color;
+}
+
+:host ::ng-deep .p-accordion-header {
+    a {
+        color: $secondary-color;
+        background-color: $primary-color;
+    }
+}

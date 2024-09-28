@@ -1,0 +1,63 @@
+@import "../../../../../assets/styles/variables";
+
+:host ::ng-deep .p-datatable {
+    &-thead {
+        tr {
+            th {
+                border: 0px transparent;
+                color: $secondary-color;
+                background-color: $terciary-color !important;
+            }
+
+            &:nth-child(1) {
+                th {
+                    &:first-child {
+                        border-radius: 10px 0px 0px 0px !important;
+                    }
+
+                    &:last-child {
+                        border-radius: 0px 10px 0px 0px !important;
+
+                    }
+                }
+            }
+
+            .p-column-filter {
+                .p-dropdown.p-inputwrapper {
+                    background: $secondary-color;
+                    border-color: transparent;
+
+                    span {
+                        color: $terciary-color !important;
+
+                    }
+                }
+
+                .p-dropdown-items-wrapper {
+                    background: $secondary-color;
+
+                    .p-dropdown-item {
+                        color: $terciary-color;
+
+                        &.p-focus {
+                            background-color: $terciary-color;
+                            color: $secondary-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    tr{
+
+        background-color: $primary-color;
+    }
+    .p-paginator{
+        background-color: $primary-color;
+    }
+}
+
+.card{
+    background: $primary-color;
+}

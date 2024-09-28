@@ -1,0 +1,33 @@
+@import "../../../../assets/styles/variables";
+
+:host ::ng-deep .p-tabview-nav{
+    display: flex;
+    justify-content: center;
+    background: $primary-color;
+    
+    li{
+        .p-tabview-nav-link{
+            color: $secondary-color;
+            background: $primary-color;
+        }
+        .p-tabview-selected {
+            border-color: $secondary-color !important;
+        }
+    }
+
+    li.p-highlight .p-tabview-nav-link {
+        background: #ffffff;
+        border-color: $primary-color;
+        color: $primary-color   ;
+        background: $secondary-color;
+    }
+}
+
+
+:host ::ng-deep .p-tabview-panels{
+    background: $primary-color;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+}

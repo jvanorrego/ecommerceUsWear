@@ -1,0 +1,21 @@
+<form class="form-container" (ngSubmit)="sigIn()">
+    <h4>Crea tus credenciales</h4>
+    <!-- <div class="card flex justify-content-center"> -->
+        <p-floatLabel>
+            <input pInputText id="username" [(ngModel)]="username" [ngModelOptions]="{standalone:true}" />
+            <label for="username">Usuario</label>
+        </p-floatLabel>
+        <p-floatLabel>
+            <input pInputText id="mail" [(ngModel)]="mail" [ngModelOptions]="{standalone:true}" />
+            <label for="mail">Correo</label>
+        </p-floatLabel>
+        <!-- </div> -->
+        <!-- <div class="card flex justify-content-center"> -->
+            <span class="p-float-label">
+                <p-password id="username" [(ngModel)]="password" [ngModelOptions]="{standalone:true}" />
+                <label for="username">Contraseña</label>
+        </span>
+    <!-- </div> -->
+    <button pButton label="Crear"></button>
+</form>
+<p-toast position="top-center" ></p-toast>

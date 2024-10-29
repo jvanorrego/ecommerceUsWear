@@ -1,5 +1,24 @@
+<div class="modal-box" *ngIf="showModal">
+    <div class="modal-header">
+        <div class="modal-saludo">
+            <img class="img-bot" src="https://www.shutterstock.com/image-vector/chat-bot-logo-design-concept-600nw-2478937557.jpg"/>
+            <h2>Bienvenido/a</h2>
+        </div>
+        <button class="close-button" (click)="minimizeModal()">-</button>
+    </div>
+    <div class="chat-container" #chatContainer>
+        <div class="message" *ngFor="let msg of messages">
+            <div class="user-message" *ngIf="msg.from === 'user'">{{ msg.text }}</div>
+            <div class="bot-message" *ngIf="msg.from === 'bot'" [innerHTML]="msg.text"></div>
+        </div>
+    </div>
+    <input [(ngModel)]="userInput" (keydown.enter)="sendMessage()" placeholder="Escribe un mensaje..." />
+</div>
+
+<!-- Resto de tu HTML -->
 <app-navbar [needFilter]="true" (keywordEmitter)="changeTextFilterInput($event)"></app-navbar>
 <app-hero-carrousel></app-hero-carrousel>
 <h3 style="text-align: center;">Todas las prendas</h3>
 <app-products [filterProduct]="valueFilter"></app-products>
 <app-footer></app-footer>
+<button class="floating-button" *ngIf="showButton" (click)="toggleModal()">🤖 ¡Chatea con nosotros!</button>

@@ -13,3 +13,101 @@ h3{
     font-size: 35px;
     color: $secondary-color;
 }
+
+.modal-box {
+    position: fixed;
+    bottom: 60px; /* Ajusta la distancia desde la parte inferior */
+    right: 20px;  /* Ajusta la distancia desde la parte derecha */
+    width: 35%; /* 35% del ancho de la pantalla */
+    height: 60%; /* 40% de la altura de la pantalla */
+    background-color: white; /* Color de fondo */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Sombra */
+    z-index: 1000; /* Asegúrate de que esté encima de otros elementos */
+    padding: 16px; /* Espaciado interno */
+    display: flex; /* Flexbox para el contenido */
+    flex-direction: column; /* Dirección de los elementos */
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between; /* Espaciado entre el título y el botón */
+    align-items: center; /* Centra verticalmente */
+}
+
+.modal-saludo{
+    display: flex;
+    align-items: center;
+}
+
+.img-bot{
+    width: 12%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.chat-container {
+    flex-grow: 1;
+    overflow-y: auto; /* Permite el desplazamiento */
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.message {
+    margin-bottom: 10px;
+}
+
+.user-message {
+    background-color: #d1e7dd; /* Color de fondo para mensajes del usuario */
+    padding: 8px;
+    border-radius: 10px;
+    max-width: 80%;
+}
+
+.bot-message {
+    background-color: #f8d7da; /* Color de fondo para mensajes del bot */
+    padding: 8px;
+    border-radius: 10px;
+    max-width: 80%;
+}
+
+::ng-deep .image-recomendation {
+    width: 50%; 
+    max-width: 100%; 
+    height: auto; 
+}
+
+
+input {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+}
+
+.close-button {
+    background: none;
+    border: none;
+    font-size: 24px; /* Tamaño del botón */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
+}
+
+.floating-button {
+    position: fixed;
+    bottom: 60px; /* Ajusta la distancia desde la parte inferior */
+    right: 20px;  /* Ajusta la distancia desde la parte derecha */
+    border-radius: .5rem; /* Hace el botón circular */
+    background-color: #007bff; /* Color de fondo */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    font-size: 24px; /* Tamaño del texto */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Sombra */
+    z-index: 1000; /* Asegúrate de que esté encima de otros elementos */
+    padding: 1%;
+}
+
+.floating-button:hover {
+    background-color: #0056b3; /* Color de fondo al pasar el mouse */
+}
